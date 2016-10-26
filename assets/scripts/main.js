@@ -104,18 +104,13 @@
 
 								$('.toggle').click(function(e) {
 										e.preventDefault();
-
 										var $this = $(this);
 
 										if ($this.next().hasClass('show')) {
 												$this.next().removeClass('show');
-												//$this( "ul li:last-child" ).toggleClass('xxxxxxxxx');
-												//$this.next().slideUp(350);
 										} else {
 												$this.parent().parent().find('li .inner').removeClass('show');
-												//$this.parent().parent().find('li .inner').slideUp(350);
 												$this.next().toggleClass('show');
-												//$this.next().slideToggle(350);
 										}
 								});
 
@@ -133,10 +128,8 @@
 										itemSelector: '.grid-item',
 										layoutMode: 'fitRows'
 								});
-
 								// store filter for each group
 								var filters = {};
-
 								// flatten object by concatting values
 								function concatValues(obj) {
 										var value = '';
@@ -166,13 +159,9 @@
 
 										if ($this.next().hasClass('show')) {
 												$this.next().removeClass('show');
-												//$this( "ul li:last-child" ).toggleClass('xxxxxxxxx');
-												//$this.next().slideUp(350);
 										} else {
 												$this.parent().parent().find('li .inner').removeClass('show');
-												//$this.parent().parent().find('li .inner').slideUp(350);
 												$this.next().toggleClass('show');
-												//$this.next().slideToggle(350);
 										}
 								});
 
