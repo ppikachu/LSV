@@ -14,8 +14,8 @@ function remove_dashboard_meta() {
 add_action( 'admin_init', 'remove_dashboard_meta' );
 
 define('GOOGLE_FONTS', 'Raleway:300,400,500,700');
-function load_google_fonts() {			
-	if( ! defined( 'GOOGLE_FONTS' ) ) return;	
+function load_google_fonts() {
+	if( ! defined( 'GOOGLE_FONTS' ) ) return;
 	echo '<link href="http://fonts.googleapis.com/css?family=' . GOOGLE_FONTS . '" rel="stylesheet" type="text/css" />'."\n";
 
 }
@@ -37,35 +37,6 @@ function get_id_by_slug($page_slug) {
 	}
 }
 
-// Displays comma separated taxonomy terms
-function entry_terms() {
-	$terms = get_the_terms( $post->ID , 'zona' );
-	//print_r($terms);
-	if ( ! empty( $terms ) ) {
-		echo '<p class="small entry-meta"><span class="entry-terms">';
-			foreach ( $terms as $term ) {
-				$entry_terms .= $term->name . ' / ';
-			}
-			$entry_terms = rtrim( $entry_terms, ' / ' );
-		echo $entry_terms . '</span></p>';
-	}
-}
-
-
-// List terms in a given taxonomy using wp_list_categories (also useful as a widget if using a PHP Code plugin)
-function data_lugar($parametro) {
-	global $post;
-	$term_list = wp_get_post_terms($post->ID, $parametro, array('orderby' => 'group'));
-	//print_r($term_list);
-	if ( ! empty( $term_list ) ) {
-			foreach ( $term_list as $term ) {
-				$entry_terms .= $term->slug . ' ';
-			}
-			$entry_terms = rtrim( $entry_terms, ' ' );
-		echo $entry_terms;
-	}
-}
-
 function entry_termsB() {
 	global $post;
 	$term_list = wp_get_post_terms($post->ID, 'zona', array('orderby' => 'group'));
@@ -80,28 +51,17 @@ function entry_termsB() {
 	}
 }
 
-
-function tax_terms() {
-	$taxName = "zona";
-	$terms = get_terms($taxName,array('parent' => 0,'orderby' => 'name'));
-	foreach($terms as $term) {
-		echo '<button class="btn btn-sm btn-outline-primary" data-zona=".zona-'.$term->slug.'" data-toggle="collapse" data-parent="#filters" data-target="#sub-'.$term->slug.'" aria-expanded="false" aria-controls="sub-'.$term->slug.'" >'.$term->name.'</button> ';
-		echo '<span class="panel-collapse collapse" id="sub-'.$term->slug.'" role="tabpanel">';
-		$term_children = get_terms($taxName, array( 'parent' => $term->term_id,'hierarchical'=>false ));
-			foreach($term_children as $term_child_id) {
-				$term_grandchildren = get_terms($taxName, array( 'parent' => $term_child_id->term_id ));
-				//if ($term_grandchildren) echo '<div id="grand">';
-				echo '<button class="hijo btn btn-sm btn-outline-primary" data-zona=".zona-'.$term_child_id->slug.'" data-toggle="collapse" data-parent="#sub0-'.$term->slug.'" data-target="#grand-'.$term_child_id->slug.'" aria-expanded="false" aria-controls="grand-'.$term_child_id->slug.'">'.$term_child_id->name.'</button> ';
-				if ($term_grandchildren) {
-					echo '<span class="panel-collapse collapse" id="grand-'.$term_child_id->slug.'" role="tabpanel">';
-					foreach($term_grandchildren as $term_grandchild) {
-						echo '<button class="btn btn-sm btn-outline-cyan" data-zona=".zona-'.$term_grandchild->slug.'">'.$term_grandchild->name.'</button> ';
-					}
-					echo '</span>';
-				}
-				//if ($term_grandchildren) echo '</div>';
+// List terms in a given taxonomy using wp_list_categories (also useful as a widget if using a PHP Code plugin)
+function data_lugar($parametro) {
+	global $post;
+	$term_list = wp_get_post_terms($post->ID, $parametro, array('orderby' => 'group'));
+	//print_r($term_list);
+	if ( ! empty( $term_list ) ) {
+			foreach ( $term_list as $term ) {
+				$entry_terms .= $term->slug . ' ';
 			}
-		echo '</span>';
+			$entry_terms = rtrim( $entry_terms, ' ' );
+		echo $entry_terms;
 	}
 }
 
@@ -194,10 +154,10 @@ function mostrar_banner($slug) {
 						$precarousel .=  '</div>';
 						$i++;
 					}
-				
+
 				$indicators .= '</ol>';
 				$carousel = '<div id="carousel-banner-'.$slug.'" class="carousel slide" data-ride="carousel"><div class="carousel-inner" role="listbox">'.$indicators.$precarousel.'</div><a class="left carousel-control" href="#carousel-banner-'.$slug.'" role="button" data-slide="prev"><span class="icon-prev" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel-banner-'.$slug.'" role="button" data-slide="next"><span class="icon-next" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
-				
+
 				echo $carousel;
 
 			}
