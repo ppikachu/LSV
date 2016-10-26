@@ -62,57 +62,57 @@
 				'tax_tipo': {
 						init: function() {
 
-								var $grid = $('.grid').isotope({
-										// options
-										itemSelector: '.grid-item',
-										layoutMode: 'fitRows'
-								});
+							var $grid = $('.grid').isotope({
+								// options
+								itemSelector: '.grid-item',
+								layoutMode: 'fitRows'
+							});
 
-								// bind filter button click
-								var $filters = $('#filters').on('click', 'button', function() {
-										var filterAttr = $(this).attr('data-filter');
-										$grid.isotope({ filter: filterAttr });
-								});
+							// bind filter button click
+							var $filters = $('#filters').on('click', 'button', function() {
+								var filterAttr = $(this).attr('data-filter');
+								$grid.isotope({ filter: filterAttr });
+							});
 
-								// change is-checked class on buttons
-								$('.btn-group-zonas').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.zona', function() {
-												$buttonGroup.find('.check').removeClass('check');
-												$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
-												$buttonGroup.find('.check-zona').removeClass('check-zona');
-												$(this).addClass('check-zona');
-										});
+							// change is-checked class on buttons
+							$('.btn-group-zonas').each(function(i, buttonGroup) {
+								var $buttonGroup = $(buttonGroup);
+								$buttonGroup.on('click', '.zona', function() {
+									$buttonGroup.find('.check').removeClass('check');
+									$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
+									$buttonGroup.find('.check-zona').removeClass('check-zona');
+									$(this).addClass('check-zona');
 								});
-								// change is-checked class on buttons
-								$('.inner').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.hijo', function() {
-											$buttonGroup.find('.check').removeClass('check');
-											$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
-											$(this).addClass('check');
-										});
+							});
+							// change is-checked class on buttons
+							$('.inner').each(function(i, buttonGroup) {
+								var $buttonGroup = $(buttonGroup);
+								$buttonGroup.on('click', '.hijo', function() {
+									$buttonGroup.find('.check').removeClass('check');
+									$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
+									$(this).addClass('check');
 								});
-								// change is-checked class on buttons
-								$('.grand-ul').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.grand', function() {
-												$buttonGroup.find('.check-grand').removeClass('check-grand');
-												$(this).addClass('check-grand');
-										});
+							});
+							// change is-checked class on buttons
+							$('.grand-ul').each(function(i, buttonGroup) {
+								var $buttonGroup = $(buttonGroup);
+								$buttonGroup.on('click', '.grand', function() {
+									$buttonGroup.find('.check-grand').removeClass('check-grand');
+									$(this).addClass('check-grand');
 								});
+							});
 
-								$('.toggle').click(function(e) {
-										e.preventDefault();
-										var $this = $(this);
+							$('.toggle').click(function(e) {
+								e.preventDefault();
+								var $this = $(this);
 
-										if ($this.next().hasClass('show')) {
-												$this.next().removeClass('show');
-										} else {
-												$this.parent().parent().find('li .inner').removeClass('show');
-												$this.next().toggleClass('show');
-										}
-								});
+								if ($this.next().hasClass('show')) {
+									$this.next().removeClass('show');
+								} else {
+									$this.parent().parent().find('li .inner').removeClass('show');
+									$this.next().toggleClass('show');
+								}
+							});
 
 						},
 						finalize: function() {
@@ -122,87 +122,87 @@
 				// filtrado lugares anterior
 				'post_type_archive_lugar': {
 						init: function() {
-								// JavaScript to be fired on the about us page
-								var $grid = $('.grid').isotope({
-										// options
-										itemSelector: '.grid-item',
-										layoutMode: 'fitRows'
-								});
-								// store filter for each group
-								var filters = {};
-								// flatten object by concatting values
-								function concatValues(obj) {
-										var value = '';
-										for (var prop in obj) {
-												value += obj[prop];
-										}
-										return value;
+							// JavaScript to be fired on the about us page
+							var $grid = $('.grid').isotope({
+								// options
+								itemSelector: '.grid-item',
+								layoutMode: 'fitRows'
+							});
+							// store filter for each group
+							var filters = {};
+							// flatten object by concatting values
+							function concatValues(obj) {
+								var value = '';
+								for (var prop in obj) {
+									value += obj[prop];
 								}
+								return value;
+							}
 
-								$('#filters').on('click', 'button', function() {
-										var $this = $(this);
-										// get group key
-										var $buttonGroup = $this.parents('.btn-group');
-										var filterGroup = $buttonGroup.attr('data-filter-group');
-										// set filter for group
-										filters[filterGroup] = $this.attr('data-filter');
-										// combine filters
-										var filterValue = concatValues(filters);
-										// set filter for Isotope
-										$grid.isotope({ filter: filterValue });
+							$('#filters').on('click', 'button', function() {
+								var $this = $(this);
+								// get group key
+								var $buttonGroup = $this.parents('.btn-group');
+								var filterGroup = $buttonGroup.attr('data-filter-group');
+								// set filter for group
+								filters[filterGroup] = $this.attr('data-filter');
+								// combine filters
+								var filterValue = concatValues(filters);
+								// set filter for Isotope
+								$grid.isotope({ filter: filterValue });
+							});
+
+							$('.toggle').click(function(e) {
+								e.preventDefault();
+
+								var $this = $(this);
+
+								if ($this.next().hasClass('show')) {
+									$this.next().removeClass('show');
+								} else {
+									$this.parent().parent().find('li .inner').removeClass('show');
+									$this.next().toggleClass('show');
+								}
+							});
+
+							// change is-checked class on buttons
+							$('.btn-group-zonas').each(function(i, buttonGroup) {
+								var $buttonGroup = $(buttonGroup);
+								$buttonGroup.on('click', '.zona', function() {
+									$buttonGroup.find('.check').removeClass('check');
+									$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
+									$buttonGroup.find('.check-zona').removeClass('check-zona');
+									$(this).addClass('check-zona');
 								});
-
-								$('.toggle').click(function(e) {
-										e.preventDefault();
-
-										var $this = $(this);
-
-										if ($this.next().hasClass('show')) {
-												$this.next().removeClass('show');
-										} else {
-												$this.parent().parent().find('li .inner').removeClass('show');
-												$this.next().toggleClass('show');
-										}
-								});
-
-								// change is-checked class on buttons
-								$('.btn-group-zonas').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.zona', function() {
-												$buttonGroup.find('.check').removeClass('check');
-												$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
-												$buttonGroup.find('.check-zona').removeClass('check-zona');
-												$(this).addClass('check-zona');
-										});
-								});
+							});
 
 								// change is-checked class on buttons
 								$('.inner').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.hijo', function() {
-												$buttonGroup.find('.check').removeClass('check');
-												$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
-												$(this).addClass('check');
-										});
+									var $buttonGroup = $(buttonGroup);
+									$buttonGroup.on('click', '.hijo', function() {
+										$buttonGroup.find('.check').removeClass('check');
+										$('.btn-group-zonas').find('.check-grand').removeClass('check-grand');
+										$(this).addClass('check');
+									});
 								});
 
 								// change is-checked class on buttons
 								$('.grand-ul').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.grand', function() {
-												$buttonGroup.find('.check-grand').removeClass('check-grand');
-												$(this).addClass('check-grand');
-										});
+									var $buttonGroup = $(buttonGroup);
+									$buttonGroup.on('click', '.grand', function() {
+										$buttonGroup.find('.check-grand').removeClass('check-grand');
+										$(this).addClass('check-grand');
+									});
 								});
 
 								// change is-checked class on buttons
 								$('.btn-group-tipo').each(function(i, buttonGroup) {
-										var $buttonGroup = $(buttonGroup);
-										$buttonGroup.on('click', '.btn', function() {
-												$buttonGroup.find('.check').removeClass('check');
-												$buttonGroup.find('.check').removeClass('check');
-												$(this).addClass('check');
-										});
+									var $buttonGroup = $(buttonGroup);
+									$buttonGroup.on('click', '.btn', function() {
+										$buttonGroup.find('.check').removeClass('check');
+										$buttonGroup.find('.check').removeClass('check');
+										$(this).addClass('check');
+									});
 								});
 
 						}
@@ -213,16 +213,16 @@
 		// Add additional events for more control over timing e.g. a finalize event
 		var UTIL = {
 				fire: function(func, funcname, args) {
-						var fire;
-						var namespace = Sage;
-						funcname = (funcname === undefined) ? 'init' : funcname;
-						fire = func !== '';
-						fire = fire && namespace[func];
-						fire = fire && typeof namespace[func][funcname] === 'function';
+					var fire;
+					var namespace = Sage;
+					funcname = (funcname === undefined) ? 'init' : funcname;
+					fire = func !== '';
+					fire = fire && namespace[func];
+					fire = fire && typeof namespace[func][funcname] === 'function';
 
-						if (fire) {
-								namespace[func][funcname](args);
-						}
+					if (fire) {
+							namespace[func][funcname](args);
+					}
 				},
 				loadEvents: function() {
 						// Fire common init JS
