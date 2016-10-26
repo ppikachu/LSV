@@ -1,0 +1,352 @@
+.modal-body img {
+	margin: -15px 0 -15px 0;
+}
+
+.show {
+		.grand-ul {
+			margin-left: -.2rem;
+		}
+	.btn {
+		margin-left: -0.066rem;
+		border-radius: 0;
+		&.check {
+			border-radius: 0;
+			/*margin-right: -.2rem;*/
+		}
+	}
+		
+	li:last-child > .btn {
+		border-top-right-radius: $btn-border-radius-sm;
+		border-bottom-right-radius: $btn-border-radius-sm;
+	}
+}
+
+.btn-group-zonas,.btn-group-tipo {
+	margin: 0;
+	padding: 0;
+
+	#btn-todos {
+		margin-right: 0;
+		border-radius: $btn-border-radius-sm;
+	}
+
+	>li {
+		margin-right: $spacer/2;
+	}
+	li {
+		display: inline-block;
+	}
+
+	.check-zona {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-right: -.33rem;
+		@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+	}
+	.check {
+		@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+	}
+	.check-grand {
+		@include button-variant($btn-primary-color, $brand-complement2, $brand-complement2);
+	}
+
+	#grand-nqn {
+   	 /*margin-left: -.2rem;*/
+	}
+}
+
+#filters .btn {
+	margin-bottom: $spacer/2;
+	/*border-radius: $border-radius;*/
+}
+
+.term-restaurante .btn.tipo-restaurante,
+.term-vinoteca .btn.tipo-vinoteca,
+.term-enoturismo .btn.tipo-enoturismo,
+.term-bar .btn.tipo-bar,
+.term-accionespopup .btn.tipo-accionespopup
+  {
+	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.inner {
+	/*padding-left: 1em;*/
+	padding: 0;
+	overflow: hidden;
+	display: none;
+
+	&.show {
+	display: inline;
+	}
+}
+
+.grid {
+	min-height: 30vh;
+}
+
+.grid-item {
+	width: 50%;
+	@include media-breakpoint-up(sm) {
+		width: 33%;
+	}
+	.icono {
+		display: block;
+		width: 30%;
+		margin: auto;
+	}
+	h6 {
+		color: white;
+	}
+
+	.card {
+		min-height: 320px;
+		background-blend-mode: multiply;
+		border:none;
+	}
+}
+
+.card-inverse .card-text {
+	color: $gray-lightest;
+}
+
+.tipo-restaurante .card {
+	background-color: #6d3099;
+}
+
+.tipo-bar .card {
+	background-color: #5060bd;
+}
+
+.tipo-vinoteca .card {
+	background-color: #c52985;
+}
+
+.tipo-enoturismo .card {
+	background-color: #5dafbd;
+}
+
+.tipo-accionespopup .card {
+    /*background-color: #5b6471;*/
+    background-color: $gray-light;
+	background-image: url(../images/bkg-accionespopup.png);
+	background-position: center;
+	background-size: cover;
+}
+
+.card h1,.card h2,.card h3,.card h4,.card h5,.card h6 {
+	color: $gray-lightest;
+}
+
+
+.btn-secondary {
+	@include button-variant($gray-lightest, $brand-secondary, $brand-secondary);
+}
+.btn-outline-secondary {
+  @include button-outline-variant($brand-secondary);
+}
+.btn-violeta {
+	@include button-variant($gray-lightest, $brand-complement1, $brand-complement1);
+}
+.btn-outline-violeta {
+  @include button-outline-variant($brand-complement1);
+}
+.btn-cyan {
+	@include button-variant($gray-lightest, $brand-complement2, $brand-complement2);
+}
+
+.btn-outline-cyan {
+  @include button-outline-variant($brand-complement2);
+}
+
+.color-secondary {
+	color: $brand-secondary;
+}
+
+.color-violeta {
+	color: $brand-complement1;
+}
+
+.color-cyan {
+	color: $brand-complement2;
+}
+
+.fondo-secondary {
+	background-color: $brand-secondary;
+}
+
+.fondo-violeta {
+	background-color: $brand-complement1;
+}
+
+.fondo-cyan {
+	background-color: $brand-complement2;
+}
+
+.color-blanco {
+	color: $gray-lightest;
+}
+
+.color-negro {
+	color: $gray-dark;
+}
+
+.collapse.in {
+	display: inline;
+}
+
+.single img {
+	max-width: 100%;
+	height: auto;
+}
+
+.page-header {
+	text-transform: uppercase;
+	padding: $spacer*4 0 $spacer*3 0;
+	background-image: url('../images/fondo_titulo.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.entry-title {
+	text-transform: uppercase;
+	padding: $spacer 0 $spacer 0;
+}
+
+.margen {
+	padding: $spacer*2 0 $spacer*2 0;
+}
+
+.iframe-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	/* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
+
+.iframe-container > * {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#mmenu {
+	text-transform: uppercase;
+	position: relative;
+}
+
+.menu-item {
+	font-weight: 700;
+	@include media-breakpoint-up(md) {
+		padding-left: $spacer;
+		font-size: .8rem;
+		border-left: solid 1px $gray-lightest;
+		display: inline;
+	}
+	&:first-child {
+		border-left: none;
+	}
+}
+
+.navbar-brand {
+	position: absolute;
+	top: -102px;
+	left: -10px;
+	width: 130px;
+	height: 130px;
+	display: block;
+	/*background-image: url('../images/logo_alt.png');*/
+	background-image: url('../images/logo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 0;
+	margin: 0;
+	@include media-breakpoint-up(md) {
+		top: -60px;
+	}
+	@include media-breakpoint-up(lg) {
+		top: -70px;
+		width: 150px;
+		height: 150px;
+	}
+}
+
+#barra_share {
+	background: darken($brand-primary, 10%);
+	color: $gray-lightest;
+	.row {
+		height: 50px;
+	}
+}
+
+.banner_uno {
+	position: relative;
+	.zona_boton {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		> div {
+			padding-right: 0;
+			padding-left: 0;
+		}
+		@include media-breakpoint-up(md) {
+			position: absolute;
+			top: 0;
+			left: 10%;
+			right: 10%;
+			bottom: 0;
+		}
+	}
+	.btn {
+		@include media-breakpoint-down(sm) {
+			border-radius: 0;
+			width: 100%;
+		}
+	}
+}
+
+.banner_dos {
+	position: relative;
+	.zona_boton {
+		position: absolute;
+		top: 0;
+		left: 10%;
+		right: 10%;
+		bottom: 0;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		> div {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+}
+
+.carousel-item img,
+.banner_uno img {
+	width: 100%;
+}
+
+.carousel-indicators {
+	bottom: 0;
+	li {
+		margin: 5px;
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+	}
+	.active {
+		margin: 4px;
+		border-color: $brand-secondary;
+	}
+}
